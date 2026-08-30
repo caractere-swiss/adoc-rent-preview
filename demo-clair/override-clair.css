@@ -110,6 +110,22 @@ a:hover, a:focus-visible, :focus-visible { color: var(--clair-lien) !important; 
 .media-placeholder__marque {
   color: #00598D !important;
 }
+
+/* Lot 20 — régression trouvée en corrigeant le thème SOMBRE (dist/css/
+   main.css, fichier PARTAGÉ par cette démo et la préversion sombre) :
+   `.bouton--secondaire` y est passé de #0079C0 à #2E9BE0 pour repasser
+   ≥4,5:1 sur fond sombre — mais #2E9BE0 sur blanc n'est que 3,05:1 (déjà
+   écarté pour cette raison au lot 15). Sans cette règle, le correctif du
+   thème sombre cassait la démo claire. Remis à #0079C0 ici (4,67:1 sur
+   blanc, déjà le token utilisé pour les liens de cette démo). */
+.bouton--secondaire {
+  border-color: #0079C0 !important;
+  color: #0079C0 !important;
+}
+.bouton--secondaire:hover, .bouton--secondaire:focus-visible {
+  background: #0079C0 !important;
+  color: #FFFFFF !important;
+}
 .fil-ariane__item[aria-current='page'], .fil-ariane__item > [aria-current='page'] {
   color: var(--clair-texte) !important;
 }
