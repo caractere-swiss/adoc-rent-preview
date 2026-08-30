@@ -122,7 +122,7 @@
 						<h2 class="zone-prix__titre">Tarifs de location</h2>
 						<p class="zone-prix__sur-demande">Prix sur demande — ce matériel se tarife au cas par cas.</p>
 						<p class="zone-prix__cta-demande">
-							<a class="bouton bouton--primaire" href="contact.html?materiel=101">Demander un tarif</a>
+														<a class="bouton bouton--primaire" href="#demande-devis">Demander un tarif</a>
 						</p>
 						<p class="zone-prix__mention">Réservé aux professionnels.</p>
 					</div>
@@ -132,6 +132,63 @@
 		Demander un renseignement	</a>
 </div>
 			</div>
+		</div>
+
+				<div class="wrap fiche-materiel__demande">
+			<div id="demande-devis" class="formulaire-contact">
+			<p class="formulaire-contact__objet">
+			Votre demande concerne : <strong>Prokasro – robots électriques DN 150 à DN 800 mm</strong>		</p>
+	
+			
+		<form class="form-gate formulaire-contact__form" method="post" action="#" novalidate>
+			<input type="hidden" name="action" value="rent_contact">
+			<input type="hidden" name="cc_materiel_id" value="101">
+			<input type="hidden" name="redirect_to" value="materiel-prokasro-robots-electriques-dn-150-a-dn-800-mm.html">
+			<input type="hidden" name="cc_ts" value="1788094475">
+			
+			<p class="form-gate__champ">
+				<label for="cc_civilite-demande-devis">Civilité <span aria-hidden="true">*</span></label>
+				<select id="cc_civilite-demande-devis" name="cc_civilite" required>
+					<option value="">Choisir…</option>
+											<option value="M.">M.</option>
+											<option value="Mme">Mme</option>
+											<option value="Dr">Dr</option>
+											<option value="Me">Me</option>
+											<option value="Prof.">Prof.</option>
+									</select>
+			</p>
+			<p class="form-gate__champ">
+				<label for="cc_nom-demande-devis">Nom et prénom <span aria-hidden="true">*</span></label>
+				<input type="text" id="cc_nom-demande-devis" name="cc_nom" autocomplete="name" required>
+			</p>
+			<p class="form-gate__champ">
+				<label for="cc_entreprise-demande-devis">Entreprise</label>
+				<input type="text" id="cc_entreprise-demande-devis" name="cc_entreprise" autocomplete="organization">
+			</p>
+			<p class="form-gate__champ">
+				<label for="cc_telephone-demande-devis">Téléphone</label>
+				<input type="tel" id="cc_telephone-demande-devis" name="cc_telephone" autocomplete="tel">
+			</p>
+			<p class="form-gate__champ">
+				<label for="cc_email-demande-devis">Adresse e-mail <span aria-hidden="true">*</span></label>
+				<input type="email" id="cc_email-demande-devis" name="cc_email" autocomplete="email" required>
+			</p>
+			<p class="form-gate__champ">
+				<label for="cc_message-demande-devis">Votre demande <span aria-hidden="true">*</span></label>
+				<textarea id="cc_message-demande-devis" name="cc_message" rows="5" required></textarea>
+			</p>
+
+												<input type="hidden" name="cc_avec_chauffeur" value="1">
+					<p class="form-gate__note">Ce matériel est loué exclusivement avec chauffeur/opérateur ADOC.</p>
+							
+						<p class="form-gate__pot" aria-hidden="true">
+				<label for="cc_site-demande-devis">Ne pas remplir</label>
+				<input type="text" id="cc_site-demande-devis" name="cc_site" tabindex="-1" autocomplete="off">
+			</p>
+
+			<button type="submit" class="bouton bouton--primaire">Envoyer la demande</button>
+		</form>
+	</div>
 		</div>
 
 			</article>

@@ -1,0 +1,65 @@
+/* =============================================================================
+   DÉMO — Accueil en version claire (lot 15, point E)
+   Surcouche posée sur le vrai CSS compilé du thème (dist/css/main.css),
+   PAS une refonte des fichiers source. Objectif : une page à regarder, pas
+   un thème clair prêt à livrer — voir le rapport pour ce qu'une vraie
+   bascule impliquerait.
+
+   Choix de couleur : le lien passe de $bleu-clair (#2E9BE0, 3.05:1 sur
+   blanc — sous le seuil AA 4.5:1) à $bleu-adoc (#0079C0, 4.67:1 sur blanc,
+   déjà un token du projet, déjà vérifié ailleurs pour cet exact usage —
+   aucune couleur inventée).
+
+   NON corrigé ici, volontairement, pour que le défaut reste visible à
+   l'écran : les 22 pictogrammes de repli (assets/materiel/pictos/) sont
+   recolorisés #F2F5F7 (quasi blanc) — sur ce fond clair, ils sont
+   pratiquement invisibles. Voir le rapport pour ce qu'il faudrait pour les
+   régénérer.
+============================================================================= */
+
+:root {
+  --clair-fond: #FFFFFF;
+  --clair-surface: #F2F5F7;      /* réutilise le token "texte principal" du thème sombre — déjà une teinte quasi blanche */
+  --clair-texte: #0D1418;         /* réutilise le token "fond sombre" du thème sombre — déjà une teinte quasi noire */
+  --clair-texte-secondaire: #5B6B74; /* assombri pour rester lisible sur blanc — PAS ré-audité à 4.5:1, voir rapport */
+  --clair-lien: #0079C0;          /* bleu-adoc, PAS bleu-clair — 4.67:1 sur blanc, voir rapport */
+  --clair-bordure: rgba(13, 20, 24, 0.14);
+}
+
+body { background: var(--clair-fond) !important; color: var(--clair-texte) !important; }
+
+h1, h2, h3, h4 { color: var(--clair-lien) !important; }
+a:hover, a:focus-visible, :focus-visible { color: var(--clair-lien) !important; outline-color: var(--clair-lien) !important; }
+
+.site-header { background: var(--clair-fond) !important; border-bottom-color: #0079C0 !important; }
+.site-header__wordmark { color: var(--clair-texte) !important; }
+.site-nav__liste a, .site-nav__toggle-barre { color: var(--clair-texte) !important; }
+.site-nav__toggle-barre { background: #0079C0 !important; }
+.site-nav { background: var(--clair-fond) !important; border-bottom-color: #0079C0 !important; }
+.sub-menu { background: var(--clair-fond) !important; border-color: var(--clair-bordure) !important; }
+
+.section--categories, .section--zone-couverture,
+.carte-materiel__media, .media-placeholder, .zone-prix--verrouillee,
+.carte-etape, .entete-archive, .entete-categorie {
+  background: var(--clair-surface) !important;
+}
+
+.site-footer { background: var(--clair-surface) !important; color: var(--clair-texte) !important; }
+.site-footer a { color: var(--clair-texte) !important; }
+.site-footer__ombrelle, .site-footer__legal { color: var(--clair-texte-secondaire) !important; }
+
+.carte-categorie__lien, .carte-materiel__lien, .carte-argument {
+  background: var(--clair-fond) !important;
+}
+.carte-categorie__lien:hover, .carte-categorie__lien:focus-visible { background: var(--clair-surface) !important; }
+.carte-categorie__nom, .carte-materiel__titre { color: var(--clair-lien) !important; }
+.carte-categorie__desc, .carte-materiel__ref, .section__intro,
+.fil-ariane__liste, .zone-prix__periode, .zone-prix__mention {
+  color: var(--clair-texte-secondaire) !important;
+}
+.fil-ariane__item[aria-current='page'], .fil-ariane__item > [aria-current='page'] {
+  color: var(--clair-texte) !important;
+}
+
+/* Le picto de médaillon (mascottes) est déjà sur fond blanc dans le thème
+   sombre — rien à changer, il se lit à l'identique en clair. */
