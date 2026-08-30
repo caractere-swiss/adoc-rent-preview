@@ -60,9 +60,20 @@ a:hover, a:focus-visible, :focus-visible { color: var(--clair-lien) !important; 
 
 .section--categories, .section--zone-couverture,
 .carte-materiel__media, .media-placeholder, .zone-prix--verrouillee,
-.carte-etape, .entete-archive, .entete-categorie {
+.carte-etape, .entete-archive, .entete-categorie,
+.zone-prix--sur-demande, .zone-prix--deverrouillee {
   background: var(--clair-surface) !important;
 }
+/* Lot 19, 30.08.2026 — cause trouvée : `.zone-prix--sur-demande` (l'état
+   RÉELLEMENT rendu sur les 133 fiches en v1, prix neutralisés) et son
+   pendant dormant `.zone-prix--deverrouillee` n'étaient pas dans la liste
+   ci-dessus, contrairement à `.zone-prix--verrouillee` (l'état v2, jamais
+   atteint) — trois classes du même composant, une oubliée. Les COULEURS DE
+   TEXTE du bloc (titre, mention) passaient déjà par les règles générales
+   (h1-h4, liste de sélecteurs secondaires) : seul le fond avait été
+   manqué, d'où « texte déjà sombre sur fond resté sombre ». Corrigé ici,
+   dans la règle — pas fiche par fiche : les 133 pages partagent ce même
+   fichier CSS. */
 
 .site-footer { background: var(--clair-surface) !important; color: var(--clair-texte) !important; }
 .site-footer a { color: var(--clair-texte) !important; }
@@ -73,9 +84,31 @@ a:hover, a:focus-visible, :focus-visible { color: var(--clair-lien) !important; 
 }
 .carte-categorie__lien:hover, .carte-categorie__lien:focus-visible { background: var(--clair-surface) !important; }
 .carte-categorie__nom, .carte-materiel__titre { color: var(--clair-lien) !important; }
+/* Lot 19 — liste exhaustive de TOUS les sélecteurs qui posent
+   `color:#A8B6BF` ($texte-secondaire) dans le CSS compilé (vérifié par
+   recherche dans dist/css/main.css, pas complétée au cas par cas comme la
+   liste précédente, incomplète de 4 sélecteurs — même défaut que
+   `.zone-prix--sur-demande` : la RÈGLE doit couvrir le token, pas une
+   sélection de composants où on a pensé à en avoir besoin). */
 .carte-categorie__desc, .carte-materiel__ref, .section__intro,
-.fil-ariane__liste, .zone-prix__periode, .zone-prix__mention {
+.fil-ariane__liste, .zone-prix__periode, .zone-prix__mention,
+.zone-prix__intro, .liste-prestations__intro,
+.fiche-materiel__caracts th, .fiche-materiel__credit-visuel,
+.fiche-materiel__photo-mention, .media-placeholder {
   color: var(--clair-texte-secondaire) !important;
+}
+
+/* Lot 19 — `.media-placeholder__marque` (le mot-symbole « RENT » du repli
+   typographique, quand une fiche n'a ni photo ni pictogramme) est
+   rgba(#0079C0, 55%) dans le thème sombre : composité sur la surface
+   claire, 2,15:1 seulement (la transparence perd son sens sur un fond
+   clair — calculé, pas estimé). `$couleur-primaire` plein (#0079C0)
+   suffirait pour la variante 24px (4,27:1, ≥3:1) mais pas pour la variante
+   compacte 20px des grilles de cartes (< 4,5:1) : `$couleur-primaire-fonce`
+   (#00598D, déjà un token du projet — état survol des boutons) retenu à la
+   place, 6,82:1 sur la surface, marge suffisante pour les deux tailles. */
+.media-placeholder__marque {
+  color: #00598D !important;
 }
 .fil-ariane__item[aria-current='page'], .fil-ariane__item > [aria-current='page'] {
   color: var(--clair-texte) !important;
