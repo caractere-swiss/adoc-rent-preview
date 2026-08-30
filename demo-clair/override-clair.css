@@ -1,20 +1,30 @@
 /* =============================================================================
-   DÉMO — Accueil en version claire (lot 15, point E)
+   DÉMO — Accueil + catalogue en version claire (lots 15-17)
    Surcouche posée sur le vrai CSS compilé du thème (dist/css/main.css),
    PAS une refonte des fichiers source. Objectif : une page à regarder, pas
-   un thème clair prêt à livrer — voir le rapport pour ce qu'une vraie
-   bascule impliquerait.
+   un thème clair prêt à livrer — voir CODE.md (adoc-rent) pour ce qu'une
+   vraie bascule impliquerait.
 
    Choix de couleur : le lien passe de $bleu-clair (#2E9BE0, 3.05:1 sur
    blanc — sous le seuil AA 4.5:1) à $bleu-adoc (#0079C0, 4.67:1 sur blanc,
    déjà un token du projet, déjà vérifié ailleurs pour cet exact usage —
    aucune couleur inventée).
 
-   NON corrigé ici, volontairement, pour que le défaut reste visible à
-   l'écran : les 22 pictogrammes de repli (assets/materiel/pictos/) sont
-   recolorisés #F2F5F7 (quasi blanc) — sur ce fond clair, ils sont
-   pratiquement invisibles. Voir le rapport pour ce qu'il faudrait pour les
-   régénérer.
+   Lot 17 — deux défauts de contraste de SURFACE corrigés (la règle DESIGN.md
+   n'avait pas suivi le premier passage en clair) :
+   - H1 du Hero : la règle générale `h1,h2,h3,h4{color:$lien}` posée au
+     lot 15 s'appliquait AUSSI au H1 du Hero, qui reste sur un aplat
+     #0079C0 dans cette démo — bleu sur bleu, 1:1, invisible. Corrigé par
+     une règle plus spécifique ci-dessous, réservée au Hero.
+   - Médaillons de catégorie : cercle blanc sur carte blanche, aucune
+     bordure visible (l'ancienne bordure `rgba(blanc,.14)` est elle-même
+     conçue pour un fond SOMBRE). Bordure `$couleur-primaire` ajoutée,
+     calculée — voir le rapport pour le ratio exact.
+   - Les 22 pictogrammes de repli sont désormais servis en version
+     RECOLORISÉE #0D1418 (nouveaux fichiers, `assets-pictos-sombre/`,
+     suffixés `-sombre`) — les fichiers blancs d'origine
+     (`assets/materiel/pictos/`) ne sont ni touchés ni remplacés, ils
+     restent ceux du thème sombre.
 ============================================================================= */
 
 :root {
@@ -30,6 +40,16 @@ body { background: var(--clair-fond) !important; color: var(--clair-texte) !impo
 
 h1, h2, h3, h4 { color: var(--clair-lien) !important; }
 a:hover, a:focus-visible, :focus-visible { color: var(--clair-lien) !important; outline-color: var(--clair-lien) !important; }
+
+/* Lot 17, point A — contraste de surface du Hero : sur son propre aplat
+   #0079C0 (inchangé dans cette démo), le texte reste blanc, comme dans le
+   thème sombre. Sans ceci, la règle générale h1-h4 ci-dessus pose du bleu
+   sur bleu (1:1) — c'est le défaut du lot 5 reproduit sur le titre. Les
+   autres éléments du Hero (sous-titre, zone, bouton) étaient déjà corrects
+   — vérifiés, pas seulement le H1. */
+.hero, .hero__titre, .hero__sous-titre, .hero__zone {
+  color: #FFFFFF !important;
+}
 
 .site-header { background: var(--clair-fond) !important; border-bottom-color: #0079C0 !important; }
 .site-header__wordmark { color: var(--clair-texte) !important; }
@@ -61,5 +81,15 @@ a:hover, a:focus-visible, :focus-visible { color: var(--clair-lien) !important; 
   color: var(--clair-texte) !important;
 }
 
-/* Le picto de médaillon (mascottes) est déjà sur fond blanc dans le thème
-   sombre — rien à changer, il se lit à l'identique en clair. */
+/* Lot 17, point C — le médaillon (cercle blanc, mascottes ou repli
+   typographique) est indissociable d'une carte blanche sur cette démo :
+   sans limite visible, le repère de catégorie disparaît. Le fond ne peut
+   pas bouger (les mascottes sont conçues pour un médaillon clair — lot 15),
+   donc la bordure porte le contraste (même principe que R22) : bleu de
+   marque, 4,67:1 sur la carte blanche — calculé, voir le rapport. Remplace
+   l'ancienne bordure `rgba(blanc,.14)`, conçue pour un fond sombre et
+   invisible ici. */
+.medaillon-categorie {
+  border-color: #0079C0 !important;
+  border-width: 2px !important;
+}
