@@ -43,7 +43,19 @@ WebP q82, largeurs 800 et 1600, EXIF retiré, orientation appliquée.
 ⚠️ Ces quatre-là sont des photos de matériel : la mention « photos non
 contractuelles » s'applique, elle est déjà automatique côté code.
 
-## Ce que ce lot ne contient PAS
+## photos-catalogue/ — 33 photos RÉELLES du catalogue de prestations, lot 30 (31.08.2026)
+
+Extraction matérialisée du `ADOC_catalogue_prestations.pdf` annoncé ci-dessous (37 fichiers,
+800 et 1600 px). Photos du CATALOGUE DE PRESTATIONS ADOC : leur propre matériel, leurs propres
+chantiers — aucun droit tiers, aucune mention de source à poser. La mention « photos non
+contractuelles » s'applique (déjà automatique côté code).
+
+Noms de fichiers = ce qui est VISIBLE sur la photo, jamais un modèle identifié (aucune marque ni
+référence lue sur l'image n'est ajoutée au-delà de ce que le nom de fichier porte déjà) — voir
+CODE.md, rapport du lot 30, pour le détail complet de l'affectation (fiches, en-têtes de
+catégorie, et la liste de ce qui n'a PAS été rattaché faute de certitude).
+
+## Ce que ce lot ne contenait pas (avant le lot 30)
 
 `ADOC_catalogue_prestations.pdf` (28 pages, 26,5 Mo) porte **88 JPEG de plus de
 15 Ko — photos réelles du parc ADOC** : super aspirateurs, camion grue Multilift,
@@ -51,7 +63,9 @@ balayeuses, Scania et MAN bennes, pick-up, camionnettes d'inspection et leurs
 régies, robots de fraisage, caméras. Inventoriées à l'œil, non encore extraites :
 le fichier déposé sur le kDrive est un placeholder cloud non matérialisé
 (27 745 853 octets, tous nuls — mesuré des deux côtés, `device_bash` et stage,
-md5 `68f9582b9cbcdf031a5ded3963457dd9`). À reprendre dès matérialisation.
+md5 `68f9582b9cbcdf031a5ded3963457dd9`). 33 des 88 JPEG inventoriées ont été extraites et
+matérialisées pour le lot 30 (voir `photos-catalogue/` ci-dessus) ; les autres restent à
+reprendre si un lot futur en a besoin.
 
 Fait négatif mesuré, à ne pas rouvrir : `Catalogue_Loc_sans_prix_OK.pdf`
 (12 pages, rastérisé à **150 dpi**) ne contient **aucune photo de machine** —
