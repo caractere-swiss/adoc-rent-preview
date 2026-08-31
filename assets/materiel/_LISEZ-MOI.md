@@ -34,8 +34,8 @@ matériel, un cran plus bas.
 
 | Fichier | Sujet | Source |
 |---|---|---|
-| `volvo-fm330-hydrocureur-flanc-gauche` | Volvo FM330, flanc gauche | ADOC (`VS13288-gauche.jpeg`, 1600x1200) |
-| `volvo-fm330-hydrocureur-face` | Volvo FM330, face | ADOC (`VS13288-face.jpeg`, 1200x1600) |
+| `volvo-balayeuse-flanc-gauche` | Volvo balayeuse, flanc gauche | ADOC (`VS13288-gauche.jpeg`, 1600x1200) |
+| `volvo-balayeuse-face` | Volvo balayeuse, face | ADOC (`VS13288-face.jpeg`, 1200x1600) |
 | `man-tgs-35510-aspirateur-1` et `-2` | MAN TGS 35.510 aspirateur | ADOC, reçues le 24.07 (2048x1536) |
 
 WebP q82, largeurs 800 et 1600, EXIF retiré, orientation appliquée.
